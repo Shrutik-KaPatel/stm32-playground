@@ -57,6 +57,35 @@ Both found in the CS43L22 datasheet register map:
   Default is 0x01 (powered down). Wrote 0x9E (1001 1110) to power up. Read back
   confirmed 0x9E.
 
+## Logic Analyzer Capture
+
+Used a Comidox CP317 8-channel 24MHz USB logic analyzer with PulseView (sigrok) on Linux.
+Connected SCL to analyzer CH0, SDA to analyzer CH1, GND to GND. Sampled at 1 MHz
+which is plenty for 100 kHz I2C (10 samples per clock cycle).
+
+The full chip ID read transaction was visible and decoded on the wire:
+
+```
+S  [1001 0100] Wr  ACK  [0000 0001]  ACK  Sr  [1001 0101] Rd  ACK  [1110 0011]  N  P
+   address 0x4A W        reg 0x01              address 0x4A R        data 0xE3
+```
+
+Breaking down what each part means:
+- S - START condition, SDA goes LOW while SCL is HIGH, bus attention signal
+- 0x4A + Wr - master sending CS43L22 address with write bit, targeting the chip
+- ACK - CS43L22 pulling SDA LOW confirming it heard its address
+- 0x01 - master sending register address it wants to read from
+- ACK - CS43L22 confirmed register address received
+- Sr - repeated START, master keeps bus control and switches direction without STOP
+- 0x4A + Rd - same address now with read bit, master asking chip to send data back
+- ACK - CS43L22 ready to transmit
+- 0xE3 - CS43L22 drives SDA and sends chip ID byte (11100 011 = CHIPID + revision B1)
+- N - NACK from master meaning done reading
+- P - STOP condition, bus released back to idle
+
+Seeing this on the analyzer after writing the code made everything click. Two wires,
+a clock, and a data line - that is all I2C is.
+
 ## Gotchas
 
 - **Default SDA pin is PB7 not PB9.** CubeMX assigns PB7 as I2C1_SDA by default because
@@ -71,6 +100,10 @@ Both found in the CS43L22 datasheet register map:
 - **HAL uses 8-bit address format.** The 7-bit address 0x4A must be passed as 0x94
   (shifted left by 1) to all HAL I2C functions. The datasheet gives the 7-bit address,
   HAL expects 8-bit. Easy to mix up.
+
+- **Logic analyzer sampling rate must exceed signal frequency, not CPU clock.** Board
+  runs at 168 MHz but I2C runs at 100 kHz. Analyzer sampling at 1 MHz is more than
+  enough - CPU clock is irrelevant to the analyzer.
 
 - **0x1A also shows up on the bus scan.** The motion sensor (SPI device) appears to also
   respond on I2C. Not investigated further.
@@ -99,3 +132,5 @@ Both found in the CS43L22 datasheet register map:
 - HAL_I2C_Mem_Write and HAL_I2C_Mem_Read handle the entire I2C transaction internally
   including START, address, repeated START, ACK handling, and STOP. The register address
   argument (MemAddress) is written first in a write phase before the read or write data.
+
+- The logic analyzer makes abstract protocol theory concrete. Every bit, every ACK, every

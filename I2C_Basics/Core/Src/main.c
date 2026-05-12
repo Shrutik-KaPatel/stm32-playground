@@ -112,10 +112,10 @@ int main(void)
 
   printf("Scan complete.\r\n");
 
-  uint8_t chipID = 0;
+/*  uint8_t chipID = 0;
   HAL_I2C_Mem_Read(&hi2c1, 0x94, 0x01, I2C_MEMADD_SIZE_8BIT, &chipID, 1, HAL_MAX_DELAY);
 
-  printf("Chip ID: 0x%02X\r\n", chipID);
+  printf("Chip ID: 0x%02X\r\n", chipID);*/
 
   uint8_t writeVal = 0x9E;  // Power Up value from datasheet (1001 1110)
   uint8_t readBack = 0;
@@ -153,6 +153,10 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	  uint8_t chipID = 0;
+	     HAL_I2C_Mem_Read(&hi2c1, 0x94, 0x01, I2C_MEMADD_SIZE_8BIT, &chipID, 1, HAL_MAX_DELAY);
+	     printf("Chip ID: 0x%02X\r\n", chipID);
+	     HAL_Delay(500);
   }
   /* USER CODE END 3 */
 }
