@@ -120,6 +120,16 @@ int main(void)
   {
       Error_Handler();
   }
+
+  if(CS43L22_SetOutputMode(&hcs43) != HAL_OK)
+  {
+      Error_Handler();
+  }
+
+  if(CS43L22_SetVolume(&hcs43, 0x00) != HAL_OK)
+  {
+      Error_Handler();
+  }
   /* USER CODE END 2 */
 
   /* Infinite loop */
