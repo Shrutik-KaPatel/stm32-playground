@@ -1,0 +1,46 @@
+#ifndef LIS3DSHTR_H
+#define LIS3DSHTR_H
+
+#include "stm32f4xx_hal.h"
+
+/* Register addresses */
+#define LIS3_WHO_AM_I   0x0F
+#define LIS3_CTRL_REG4  0x20
+#define LIS3_OUT_X_L    0x28
+#define LIS3_OUT_X_H    0x29
+#define LIS3_OUT_Y_L    0x2A
+#define LIS3_OUT_Y_H    0x2B
+#define LIS3_OUT_Z_L    0x2C
+#define LIS3_OUT_Z_H    0x2D
+#define LIS3_CTRL_REG4_100HZ_XYZ  0x67	/* CTRL_REG4: ODR=100Hz (0110), BDU=0, Zen=1, Yen=1, Xen=1 */
+
+/* Handle struct — makes library portable across any SPI and CS pin */
+
+typedef struct {
+	SPI_HandleTypeDef *hspi;
+	GPIO_TypeDef *cs_port;
+	uint16_t cs_pin;
+
+}LIS3_HandleTypeDef;
+
+/* Raw XYZ data struct */
+typedef struct {
+    int16_t x;
+    int16_t y;
+    int16_t z;
+} LIS3_DataTypeDef;
+
+/* Public API */
+void LIS3_Init(LIS3_HandleTypeDef *hlis);
+void LIS3_ReadXYZ(LIS3_HandleTypeDef *hlis, LIS3_DataTypeDef *data);
+
+#endif /* LIS3DSHTR_H */
+
+
+
+
+
+
+
+
+
