@@ -1,0 +1,31 @@
+name: STM32 Build CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake gcc-arm-none-eabi
+
+      - name: Configure CMake
+        run: |
+          cd LED_BLINK
+          mkdir build
+          cmake -B build -DCMAKE_TOOLCHAIN_FILE=cmake/stm32f4.cmake
+
+      - name: Build
+        run: |
+          cd LED_BLINK
+          cmake --build build --parallel 4
