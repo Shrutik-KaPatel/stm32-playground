@@ -66,5 +66,3 @@ Release/
 *.d
 .metadata/
 RemoteSystemsTempFiles/
-Middlewares/
-Drivers/
