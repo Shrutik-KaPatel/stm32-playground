@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+/home/shrutik/stm32-playground/ESP32_to_Cloud_HTTP/build/CMakeFiles/bootloader
+/home/shrutik/stm32-playground/ESP32_to_Cloud_HTTP/build/CMakeFiles/bootloader.rule
+/home/shrutik/stm32-playground/ESP32_to_Cloud_HTTP/build/CMakeFiles/bootloader-complete.rule
+/home/shrutik/stm32-playground/ESP32_to_Cloud_HTTP/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+/home/shrutik/stm32-playground/ESP32_to_Cloud_HTTP/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/home/shrutik/stm32-playground/ESP32_to_Cloud_HTTP/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/home/shrutik/stm32-playground/ESP32_to_Cloud_HTTP/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/home/shrutik/stm32-playground/ESP32_to_Cloud_HTTP/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/home/shrutik/stm32-playground/ESP32_to_Cloud_HTTP/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/home/shrutik/stm32-playground/ESP32_to_Cloud_HTTP/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule

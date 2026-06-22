@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/shrutik/stm32-playground/ESP32_to_Cloud_HTTP/build/CMakeFiles/bootloader"
+		},
+		{
+			"file" : "/home/shrutik/stm32-playground/ESP32_to_Cloud_HTTP/build/CMakeFiles/bootloader.rule"
+		},
+		{
+			"file" : "/home/shrutik/stm32-playground/ESP32_to_Cloud_HTTP/build/CMakeFiles/bootloader-complete.rule"
+		},
+		{
+			"file" : "/home/shrutik/stm32-playground/ESP32_to_Cloud_HTTP/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule"
+		},
+		{
+			"file" : "/home/shrutik/stm32-playground/ESP32_to_Cloud_HTTP/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule"
+		},
+		{
+			"file" : "/home/shrutik/stm32-playground/ESP32_to_Cloud_HTTP/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule"
+		},
+		{
+			"file" : "/home/shrutik/stm32-playground/ESP32_to_Cloud_HTTP/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule"
+		},
+		{
+			"file" : "/home/shrutik/stm32-playground/ESP32_to_Cloud_HTTP/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule"
+		},
+		{
+			"file" : "/home/shrutik/stm32-playground/ESP32_to_Cloud_HTTP/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule"
+		},
+		{
+			"file" : "/home/shrutik/stm32-playground/ESP32_to_Cloud_HTTP/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"bootloader"
+		],
+		"name" : "bootloader"
+	}
+}

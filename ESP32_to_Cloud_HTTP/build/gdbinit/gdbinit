@@ -1,0 +1,2 @@
+source /home/shrutik/stm32-playground/ESP32_to_Cloud_HTTP/build/gdbinit/symbols
+source /home/shrutik/stm32-playground/ESP32_to_Cloud_HTTP/build/gdbinit/connect
