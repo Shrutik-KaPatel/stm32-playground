@@ -1,0 +1,2 @@
+source /home/shrutik/stm32-playground/STM32_to_ESP32_UART_Bridge/esp32_slave/build/bootloader/gdbinit/symbols
+source /home/shrutik/stm32-playground/STM32_to_ESP32_UART_Bridge/esp32_slave/build/bootloader/gdbinit/connect
