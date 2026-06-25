@@ -1,0 +1,15 @@
+menu "Cloud LLM Configuration"
+
+    config WIFI_SSID
+        string "WiFi SSID"
+        default "myssid"
+
+    config WIFI_PASSWORD
+        string "WiFi Password"
+        default "mypassword"
+
+    config GEMINI_API_KEY
+        string "Gemini API Key"
+        default "your_api_key_here"
+
+endmenu

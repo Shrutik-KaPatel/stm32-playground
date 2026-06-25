@@ -66,3 +66,5 @@ Release/
 *.d
 .metadata/
 RemoteSystemsTempFiles/
+sdkconfig
+build/
